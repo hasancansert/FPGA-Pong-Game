@@ -1,0 +1,8 @@
+
+State Machine - |main|current_state
+Name current_state.P2_WIN current_state.P1_WIN current_state.GAME current_state.INITIAL current_state.MENU 
+current_state.MENU 0 0 0 0 0 
+current_state.INITIAL 0 0 0 1 1 
+current_state.GAME 0 0 1 0 1 
+current_state.P1_WIN 0 1 0 0 1 
+current_state.P2_WIN 1 0 0 0 1 

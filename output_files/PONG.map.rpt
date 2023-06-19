@@ -1,0 +1,498 @@
+Analysis & Synthesis report for PONG
+Tue May 30 17:40:05 2023
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |main|current_state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue May 30 17:40:05 2023       ;
+; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                   ; PONG                                        ;
+; Top-level Entity Name           ; main                                        ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 328                                         ;
+; Total pins                      ; 36                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; main               ; PONG               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.51        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;  37.9%      ;
+;     Processor 3            ;   8.9%      ;
+;     Processor 4            ;   4.5%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                            ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; main.vhd                         ; yes             ; User VHDL File  ; D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Estimate of Logic utilization (ALMs needed) ; 2992    ;
+;                                             ;         ;
+; Combinational ALUT usage for logic          ; 3929    ;
+;     -- 7 input functions                    ; 182     ;
+;     -- 6 input functions                    ; 1871    ;
+;     -- 5 input functions                    ; 628     ;
+;     -- 4 input functions                    ; 549     ;
+;     -- <=3 input functions                  ; 699     ;
+;                                             ;         ;
+; Dedicated logic registers                   ; 328     ;
+;                                             ;         ;
+; I/O pins                                    ; 36      ;
+;                                             ;         ;
+; Total DSP Blocks                            ; 0       ;
+;                                             ;         ;
+; Maximum fan-out node                        ; hPos[2] ;
+; Maximum fan-out                             ; 1413    ;
+; Total fan-out                               ; 20743   ;
+; Average fan-out                             ; 4.79    ;
++---------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |main                      ; 3929 (3929)         ; 328 (328)                 ; 0                 ; 0          ; 36   ; 0            ; |main               ; main        ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|current_state                                                                                                   ;
++-----------------------+----------------------+----------------------+--------------------+-----------------------+--------------------+
+; Name                  ; current_state.P2_WIN ; current_state.P1_WIN ; current_state.GAME ; current_state.INITIAL ; current_state.MENU ;
++-----------------------+----------------------+----------------------+--------------------+-----------------------+--------------------+
+; current_state.MENU    ; 0                    ; 0                    ; 0                  ; 0                     ; 0                  ;
+; current_state.INITIAL ; 0                    ; 0                    ; 0                  ; 1                     ; 1                  ;
+; current_state.GAME    ; 0                    ; 0                    ; 1                  ; 0                     ; 1                  ;
+; current_state.P1_WIN  ; 0                    ; 1                    ; 0                  ; 0                     ; 1                  ;
+; current_state.P2_WIN  ; 1                    ; 0                    ; 0                  ; 0                     ; 1                  ;
++-----------------------+----------------------+----------------------+--------------------+-----------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; next_state.INITIAL_264215                          ; Selector0           ; yes                    ;
+; next_state.GAME_264191                             ; Selector0           ; yes                    ;
+; next_state.MENU_264239                             ; Selector0           ; yes                    ;
+; next_state.P1_WIN_264167                           ; Selector0           ; yes                    ;
+; next_state.P2_WIN_264143                           ; Selector0           ; yes                    ;
+; Number of user-specified and inferred latches = 5  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; p1_x1[5..9]                            ; Stuck at GND due to stuck port data_in ;
+; p1_x1[4]                               ; Stuck at VCC due to stuck port data_in ;
+; p1_x1[3]                               ; Stuck at GND due to stuck port data_in ;
+; p1_x1[2]                               ; Stuck at VCC due to stuck port data_in ;
+; p1_x1[0,1]                             ; Stuck at GND due to stuck port data_in ;
+; p1_x2[6..9]                            ; Stuck at GND due to stuck port data_in ;
+; p1_x2[5]                               ; Stuck at VCC due to stuck port data_in ;
+; p1_x2[1..4]                            ; Stuck at GND due to stuck port data_in ;
+; p2_x1[9]                               ; Stuck at VCC due to stuck port data_in ;
+; p2_x1[7,8]                             ; Stuck at GND due to stuck port data_in ;
+; p2_x1[5,6]                             ; Stuck at VCC due to stuck port data_in ;
+; p2_x1[0..4]                            ; Stuck at GND due to stuck port data_in ;
+; p2_x2[9]                               ; Stuck at VCC due to stuck port data_in ;
+; p2_x2[7,8]                             ; Stuck at GND due to stuck port data_in ;
+; p2_x2[5,6]                             ; Stuck at VCC due to stuck port data_in ;
+; p2_x2[4]                               ; Stuck at GND due to stuck port data_in ;
+; p2_x2[2,3]                             ; Stuck at VCC due to stuck port data_in ;
+; p2_x2[1]                               ; Stuck at GND due to stuck port data_in ;
+; p1_x2[0]                               ; Stuck at GND due to stuck port data_in ;
+; p2_x2[0]                               ; Stuck at GND due to stuck port data_in ;
+; VGA_R[1]~reg0                          ; Merged with VGA_R[0]~reg0              ;
+; VGA_R[2]~reg0                          ; Merged with VGA_R[0]~reg0              ;
+; VGA_R[3]~reg0                          ; Merged with VGA_R[0]~reg0              ;
+; VGA_R[4]~reg0                          ; Merged with VGA_R[0]~reg0              ;
+; VGA_R[6]~reg0                          ; Merged with VGA_R[0]~reg0              ;
+; VGA_R[7]~reg0                          ; Merged with VGA_R[5]~reg0              ;
+; VGA_B[1]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_B[2]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_B[3]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_B[4]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_B[5]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_B[6]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_B[7]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_G[0]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_G[1]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_G[2]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_G[3]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_G[4]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_G[5]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_G[6]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; VGA_G[7]~reg0                          ; Merged with VGA_B[0]~reg0              ;
+; Total Number of Removed Registers = 61 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 328   ;
+; Number of registers using Synchronous Clear  ; 251   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 78    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 240   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; ball_x1[8]                              ; 5       ;
+; ball_x1[5]                              ; 7       ;
+; ball_x1[4]                              ; 5       ;
+; ball_x1[3]                              ; 5       ;
+; ball_x1[0]                              ; 5       ;
+; ball_y1[7]                              ; 9       ;
+; ball_y1[6]                              ; 8       ;
+; ball_y1[5]                              ; 10      ;
+; ball_y1[3]                              ; 8       ;
+; ball_y1[0]                              ; 8       ;
+; ball_x2[8]                              ; 5       ;
+; ball_x2[6]                              ; 6       ;
+; ball_x2[2]                              ; 5       ;
+; ball_x2[1]                              ; 5       ;
+; ball_x2[0]                              ; 5       ;
+; ball_y2[5]                              ; 7       ;
+; ball_y2[4]                              ; 7       ;
+; ball_y2[2]                              ; 7       ;
+; ball_y2[1]                              ; 8       ;
+; ball_y2[0]                              ; 8       ;
+; ball_y2[7]                              ; 10      ;
+; ball_y2[6]                              ; 8       ;
+; p1_y1[7]                                ; 5       ;
+; p1_y1[6]                                ; 4       ;
+; p1_y1[1]                                ; 4       ;
+; p1_y1[0]                                ; 4       ;
+; p1_y2[8]                                ; 4       ;
+; p1_y2[4]                                ; 3       ;
+; p1_y2[3]                                ; 3       ;
+; p1_y2[2]                                ; 3       ;
+; p1_y2[0]                                ; 3       ;
+; p2_y1[7]                                ; 5       ;
+; p2_y1[6]                                ; 4       ;
+; p2_y1[1]                                ; 4       ;
+; p2_y1[0]                                ; 4       ;
+; p2_y2[8]                                ; 4       ;
+; p2_y2[4]                                ; 3       ;
+; p2_y2[3]                                ; 3       ;
+; p2_y2[2]                                ; 3       ;
+; p2_y2[0]                                ; 3       ;
+; ball_move_h[0]                          ; 4       ;
+; ball_move_v[0]                          ; 3       ;
+; Total number of inverted registers = 42 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |main|p1_w                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |main|score_p2[0]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |main|score_p1[9]          ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|delayCounter3[15]    ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |main|VGA_R[5]~reg0        ;
+; 7:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |main|ball_x2[3]           ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |main|ball_y2[9]           ;
+; 7:1                ; 10 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |main|ball_x2[2]           ;
+; 8:1                ; 12 bits   ; 60 LEs        ; 48 LEs               ; 12 LEs                 ; Yes        ; |main|ball_y2[0]           ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|delayCounter1[0]     ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|delayCounter2[16]    ;
+; 8:1                ; 11 bits   ; 55 LEs        ; 11 LEs               ; 44 LEs                 ; Yes        ; |main|p1_y1[2]             ;
+; 8:1                ; 11 bits   ; 55 LEs        ; 11 LEs               ; 44 LEs                 ; Yes        ; |main|p2_y1[5]             ;
+; 8:1                ; 9 bits    ; 45 LEs        ; 18 LEs               ; 27 LEs                 ; Yes        ; |main|p1_y2[0]             ;
+; 8:1                ; 9 bits    ; 45 LEs        ; 18 LEs               ; 27 LEs                 ; Yes        ; |main|p2_y2[8]             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|next_state.P2_WIN    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 328                         ;
+;     CLR               ; 12                          ;
+;     CLR SCLR          ; 32                          ;
+;     ENA               ; 51                          ;
+;     ENA CLR           ; 2                           ;
+;     ENA CLR SCLR      ; 32                          ;
+;     ENA SCLR          ; 155                         ;
+;     SCLR              ; 32                          ;
+;     plain             ; 12                          ;
+; arriav_lcell_comb     ; 3930                        ;
+;     arith             ; 397                         ;
+;         1 data inputs ; 321                         ;
+;         2 data inputs ; 76                          ;
+;     extend            ; 182                         ;
+;         7 data inputs ; 182                         ;
+;     normal            ; 3351                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 123                         ;
+;         3 data inputs ; 176                         ;
+;         4 data inputs ; 549                         ;
+;         5 data inputs ; 628                         ;
+;         6 data inputs ; 1871                        ;
+; boundary_port         ; 36                          ;
+;                       ;                             ;
+; Max LUT depth         ; 10.60                       ;
+; Average LUT depth     ; 7.49                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:22     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Tue May 30 17:39:32 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PONG -c PONG
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file main.vhd
+    Info (12022): Found design unit 1: main-rtl File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 17
+    Info (12023): Found entity 1: main File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 6
+Info (12127): Elaborating entity "main" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at main.vhd(1455): signal "p1_up" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1455
+Warning (10492): VHDL Process Statement warning at main.vhd(1455): signal "p1_down" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1455
+Warning (10492): VHDL Process Statement warning at main.vhd(1486): signal "p2_up" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1486
+Warning (10492): VHDL Process Statement warning at main.vhd(1486): signal "p2_down" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1486
+Warning (10492): VHDL Process Statement warning at main.vhd(1606): signal "p1_up" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1606
+Warning (10492): VHDL Process Statement warning at main.vhd(1606): signal "p1_down" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1606
+Warning (10492): VHDL Process Statement warning at main.vhd(1606): signal "p2_up" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1606
+Warning (10492): VHDL Process Statement warning at main.vhd(1606): signal "p2_down" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1606
+Warning (10492): VHDL Process Statement warning at main.vhd(1610): signal "p1_w" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1610
+Warning (10492): VHDL Process Statement warning at main.vhd(1612): signal "p2_w" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1612
+Warning (10492): VHDL Process Statement warning at main.vhd(1617): signal "goal_flag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1617
+Warning (10492): VHDL Process Statement warning at main.vhd(1620): signal "p1_w" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1620
+Warning (10492): VHDL Process Statement warning at main.vhd(1620): signal "p2_w" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1620
+Warning (10492): VHDL Process Statement warning at main.vhd(1622): signal "p2_w" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1622
+Warning (10492): VHDL Process Statement warning at main.vhd(1622): signal "p1_w" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1622
+Warning (10631): VHDL Process Statement warning at main.vhd(1596): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+Info (10041): Inferred latch for "next_state.P2_WIN" at main.vhd(1596) File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+Info (10041): Inferred latch for "next_state.P1_WIN" at main.vhd(1596) File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+Info (10041): Inferred latch for "next_state.GAME" at main.vhd(1596) File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+Info (10041): Inferred latch for "next_state.INITIAL" at main.vhd(1596) File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+Info (10041): Inferred latch for "next_state.MENU" at main.vhd(1596) File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+Warning (13012): Latch next_state.INITIAL_264215 has unsafe behavior File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.GAME File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 104
+Warning (13012): Latch next_state.GAME_264191 has unsafe behavior File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.INITIAL File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 104
+Warning (13012): Latch next_state.MENU_264239 has unsafe behavior File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.GAME File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 104
+Warning (13012): Latch next_state.P1_WIN_264167 has unsafe behavior File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.GAME File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 104
+Warning (13012): Latch next_state.P2_WIN_264143 has unsafe behavior File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 1596
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.INITIAL File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 104
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: D:/FPGA_lab/Nihai_Sayilir/Nihai_Sayilir/main.vhd Line: 12
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3972 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 3936 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 29 warnings
+    Info: Peak virtual memory: 4983 megabytes
+    Info: Processing ended: Tue May 30 17:40:05 2023
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:47
+
+
